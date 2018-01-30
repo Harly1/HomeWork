@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
 
- byte[] bytes = {65, 66, 13, 13, 10, 10, 13, 67, 13, 13};
+              byte[] bytes = {65, 66, 13, 13, 10, 10, 13, 67, 13, 13};
 //            byte[] expectedBytes = { 65, 66, 13,     10, 10, 13, 67, 13, 13 };
 //            byte[] bytes =         { 65, 13, 10, 10, 13 };
 //            byte[] expectedBytes = { 65,     10, 10, 13 };
@@ -28,20 +28,21 @@ public class Main {
 //            byte[] expectedBytes = { 1, 2, 3, 13,     10, 4, 5, 6 };
 //            byte[] bytes =         { 1, 2, 3, 10, 13, 4, 5, 6 };
 //            byte[] expectedBytes = { 1, 2, 3, 10, 13, 4, 5, 6 };
-//          byte[] bytes =  {};
+//           byte[] bytes =  {};
 
      InputStreamReader reader = new  InputStreamReader(System.in);
-     int input = System.in.read(bytes);
-            while(reader.ready()){
-                int piece = reader.read();
+//     InputStreamReader writer = new  InputStreamReader(System.out.write());
+            int piece = reader.read();
+            while(piece != -1){
                 if(piece!=13){
-                    piece = reader.read();
                     if(piece!=10){
-                        System.out.println(piece);
+                        System.out.write(piece);
+
                     }
                 }
 
-                System.out.println(piece);
+
+                piece = reader.read();
             }
 
     }
