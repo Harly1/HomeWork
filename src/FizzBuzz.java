@@ -17,10 +17,10 @@ public class FizzBuzz {
 
 
         }
-        for (int i = 1; i <11 ; i++) {
+     /*   for (int i = 1; i <11 ; i++) {
             System.out.println(i);
 
 
-        }
+        }*/
     }
 }

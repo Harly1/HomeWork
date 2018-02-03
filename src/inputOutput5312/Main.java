@@ -16,15 +16,16 @@ public class Main {
 
         StringBuilder str = new StringBuilder();
         try (InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charset)) {
-
-            while (inputStreamReader.ready()) {
-                char cur = (char) inputStreamReader.read();
+            int curInt = inputStreamReader.read();
+            while (curInt != -1) {
+                char cur = (char) curInt;
                 str.append(cur);
+                curInt = inputStreamReader.read();
             }
             return str.toString();
 
-        } catch (Exception e) {
-            return str.toString();
+        } catch (IOException e) {
+            throw e;
         }
     }
 }
