@@ -8,21 +8,21 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-        int strLen = reader.readLine().length();
+
         Scanner sc = new Scanner(System.in);
         double currDouble = 0.00000;
+        String temp;
+        int i =0;
+        int len = sc.nextLine().length();
+            while (sc.hasNextDouble() && i < len){
 
-            for (int i = 0; i<strLen; i++) {
-                if(sc.hasNextDouble()){
-                    currDouble += sc.nextDouble();
-                } else {
-                    System.out.println("No");
-                }
+                currDouble += sc.nextDouble();
+                i++;
             }
-
         System.out.format("%.6f",currDouble);
 
+        }
+
     }
-}
+
 
