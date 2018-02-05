@@ -11,18 +11,35 @@ public class Main {
 
         Scanner sc = new Scanner(System.in);
         double currDouble = 0.00000;
-        String temp;
+        String str = "";
         int i =0;
-        int len = sc.nextLine().length();
-            while (sc.hasNextDouble() && i < len){
+     //   String str = sc.nextLine();
+      //  sc = new Scanner(str);
 
+            while (sc.hasNextDouble()){
                 currDouble += sc.nextDouble();
-                i++;
+  //             String del = convert(currDouble);
+ //               str = str.replace(del, "");
+//                sc = new Scanner(str);
+
             }
+
         System.out.format("%.6f",currDouble);
 
         }
 
+
+    public static String convert(Double target) {
+
+        String str = Double.toString(target);
+        str = str.replace(".",",");
+        int count = str.substring(str.indexOf(","),str.length()).length() - 1; //убираю ,0 из числа
+        if(count == 1){
+            str = str.replace(",0","");
+        }
+        return str;
     }
+
+}
 
 
