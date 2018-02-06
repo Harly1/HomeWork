@@ -8,25 +8,25 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-
-        Scanner sc = new Scanner(System.in);
         double currDouble = 0.00000;
-        String str = "";
-        int i =0;
-     //   String str = sc.nextLine();
-      //  sc = new Scanner(str);
 
-            while (sc.hasNextDouble()){
-                currDouble += sc.nextDouble();
-  //             String del = convert(currDouble);
- //               str = str.replace(del, "");
-//                sc = new Scanner(str);
+        try (Scanner sc = new Scanner(System.in)) {
+            while (sc.hasNext()){
+                try {
+                    currDouble += Double.parseDouble(sc.next());
+
+                } catch (Exception e){
+
+                }
 
             }
 
-        System.out.format("%.6f",currDouble);
-
+        } catch (Exception e) {
+                e.printStackTrace();
         }
+
+        System.out.format("%.6f",currDouble);
+    }
 
 
     public static String convert(Double target) {
