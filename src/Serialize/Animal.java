@@ -12,7 +12,6 @@ class Animal implements Serializable {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         deserializeAnimalArray(Test());
-     Test();
 
     }
     public static byte[] Test() throws IOException {
@@ -36,8 +35,8 @@ class Animal implements Serializable {
 
         oos.flush();
 
-        byte[] res = new byte[size];
-        return oos.write(res);
+//        byte[] res = new byte[size];
+        return byteMass.toByteArray();
 
     }
     @Override
@@ -47,18 +46,20 @@ class Animal implements Serializable {
         }
         return false;
     }
-    public static Animal[] deserializeAnimalArray(byte[] data) throws IOException, ClassNotFoundException {
-        Animal[] animalsDeser = new Animal[data.length];
+    public static Animal[] deserializeAnimalArray(byte[] data)  {
 
         try(ObjectInputStream in = new ObjectInputStream(new ByteArrayInputStream(data))) {
 
             int size = in.readInt();
+            Animal[] animalsDeser = new Animal[size];
 
             if(size >= 0) {
                 for (int i = 0; i < size; i++) {
-                    animalsDeser = (Animal[]) in.readObject();
+                   animalsDeser[i] = (Animal) in.readObject();
                 }
             }
+
+            return animalsDeser;
 
         } catch (IOException e){
 
@@ -67,9 +68,12 @@ class Animal implements Serializable {
         }catch (ClassNotFoundException e){
 
             throw new IllegalArgumentException(e);
-        }
 
-        return animalsDeser;
+        }catch (ClassCastException e){
+
+            throw new IllegalArgumentException(e);
+
+        }
 
     }
 
