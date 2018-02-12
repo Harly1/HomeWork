@@ -1,5 +1,7 @@
 package Generics_1;
 
+import java.util.Optional;
+
 public class Pair<Integer, String> {
 
     String str;
@@ -10,34 +12,45 @@ public class Pair<Integer, String> {
         this.i = i;
     }
 
-    public  void main() {
-        Pair<Integer, String> pair = Pair.of(1, "hello");
-        Integer i = pair.getFirst(); // 1
-        String s = pair.getSecond(); // "hello"
 
-        Pair<Integer, String> pair2 = Pair.of(1, "hello");
-        boolean mustBeTrue = pair.equals(pair2); // true!
-        boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode(); // true!
+    public static <String, Integer> Pair<Integer,String> of(Integer i, String hello) {
+
+
+    return new Pair<Integer, String>(hello,i);
     }
+
     public Integer getFirst(){
 
-    return ;
+    return this.i;
+
     }
     public String getSecond() {
 
-       return (String) "";
+       return this.str;
 
     }
-    public void equals() {
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Pair<Integer, String> rowObj = (Pair<Integer, String>) o;
+
+        if (i != null ? !i.equals(rowObj.i) : rowObj.i != null) return false;
+        return str != null ? str.equals(rowObj.str) : rowObj.str == null;
     }
+
     public int hashCode(){
 
-        return 0;
-    }
-    public void of(){
+      int result = 31 + (this.i != null ? this.i.hashCode() : 0);
+
+        return result;
 
     }
+
 
 
 }
+
+
