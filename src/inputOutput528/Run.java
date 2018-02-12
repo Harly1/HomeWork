@@ -15,17 +15,11 @@ public class Run {
 
         public static int checkSumOfStream(InputStream inputStream) throws IOException {
             int sum = 0;
-            int res = 0;
             int  readCur = 0;
-            int first = inputStream.read();
-            if(first ==-1){
-                return 0;
-            } else {
-                        while(first != -1){
 
-                        sum = Integer.rotateLeft(sum,1)^readCur;
-                        first =  inputStream.read();
-                    }
+            while( (readCur = inputStream.read()) != -1){
+                 sum = Integer.rotateLeft(sum,1)^readCur;
+
             }
             return sum;
         }

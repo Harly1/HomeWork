@@ -10,20 +10,16 @@ public class Main {
     public static void main(String[] args) throws IOException {
         double currDouble = 0.00000;
 
-        try (Scanner sc = new Scanner(System.in)) {
-            while (sc.hasNext()){
-                try {
-                    currDouble += Double.parseDouble(sc.next());
-
-                } catch (Exception e){
-
+            Scanner sc = new Scanner(System.in);
+            while(sc.hasNext()) {
+                if(sc.hasNextDouble()){
+                    currDouble += sc.nextDouble();
+                } else {
+                    sc.next();
                 }
 
             }
 
-        } catch (Exception e) {
-                e.printStackTrace();
-        }
 
         System.out.format("%.6f",currDouble);
     }

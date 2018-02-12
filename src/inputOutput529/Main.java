@@ -34,16 +34,13 @@ public class Main {
 //        InputStream inputStream = new ByteArrayInputStream(bytes);
         InputStream inputStream = System.in;
 
-
         int cur = inputStream.read();
         int next = inputStream.read();
+
         while(cur != -1){
 
-            if ((next == 10) && (cur == 13)) {
+            if (!(next == 10) && !(cur == 13)) {
 
-
-            } else {
-//                    System.out.print(cur + " ");
                 System.out.write(cur);
             }
 

@@ -17,6 +17,7 @@ public class Main {
         StringBuilder str = new StringBuilder();
         try (InputStreamReader inputStreamReader = new InputStreamReader(inputStream, charset)) {
             int curInt = inputStreamReader.read();
+
             while (curInt != -1) {
                 char cur = (char) curInt;
                 str.append(cur);
