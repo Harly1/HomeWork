@@ -17,35 +17,22 @@ public class Main {
 
         Set<Integer> res = new HashSet<Integer>();
 
-        res.addAll(set1);
-        set1.removeAll(set2);
-        set2.removeAll(res);
-        res.clear();
-        res.addAll(set1);
-        res.addAll(set2);
-
-        for (int i = 0; i < res.toArray().length; i++) // перебор всех элементов  в цикле for
-            System.out.print( (res.toArray()[i]) + " " );
-
-        symmetricDifference(set1,set2);
-        System.out.println("");
+        System.out.println(symmetricDifference(set1,set2).toString());
 
     }
 
     public static <T> Set<T> symmetricDifference(Set<? extends T> set1, Set<? extends T> set2) {
 
+        Set<T> diff = new HashSet<T>();
         Set<T> res = new HashSet<T>();
 
-        res.addAll(set1);
-        set1.removeAll(set2);
-        set2.removeAll(res);
-        res.clear();
-        res.addAll(set1);
+        diff.addAll(set1);
+        diff.removeAll(set2);
+
         res.addAll(set2);
+        res.removeAll(set1);
+        res.addAll(diff);
 
         return res;
     }
-
-
-
 }
