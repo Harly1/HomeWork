@@ -9,6 +9,9 @@ public class TestStr {
        /*System.out.println(str);
         str.subSequence(1,2);
         System.out.println(str);*/
+
+
+
     }
     public static byte[] subSequence(int start, int end, byte[] m) {
         byte[] res = new byte[(end - start+1)];
