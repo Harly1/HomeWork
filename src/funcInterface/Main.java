@@ -1,12 +1,14 @@
 package funcInterface;
 
 import java.util.Objects;
+import java.util.function.Consumer;
 import java.util.function.Function;
 import java.util.function.Predicate;
 
 public class Main {
     public static void main(String[] args) {
         Predicate<Object> condition = Objects::isNull;
+
         Function<Object, Integer> ifTrue = obj -> 0;
         Function<CharSequence, Integer> ifFalse = CharSequence::length;
         Function<String, Integer> safeStringLength = ternaryOperator(condition, ifTrue, ifFalse);
@@ -17,10 +19,14 @@ public class Main {
             Function<? super T, ? extends U> ifTrue,
             Function<? super T, ? extends U> ifFalse) {
 
-      /*      Function<? super T, ? extends U> res = condition ? ifTrue : ifFalse;
+            T str = (T)"111";
+            T u1 = (T)"dfg";
+            T u2 = (T)"fdgdfg";
 
-        return res;*/
-        return null;
+
+        return condition.test(str) ? ifTrue.apply(u1) : ifFalse.apply(u2);
+
+
     }
 
 

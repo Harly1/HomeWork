@@ -8,7 +8,7 @@ import java.util.*;
 public class Worlds {
     public static void main(String[] args) throws IOException {
         List<String> list = new ArrayList<String>();
-        Map<Integer, String> map = new HashMap<Integer, String>();
+        Map<Integer, String> map = new TreeMap<Integer, String>();
         String[] words;
         int frequency = 0;
 
