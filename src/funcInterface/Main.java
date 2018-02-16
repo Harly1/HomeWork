@@ -20,11 +20,13 @@ public class Main {
             Function<? super T, ? extends U> ifFalse) {
 
             T str = (T)"111";
-            T u1 = (T)"dfg";
-            T u2 = (T)"fdgdfg";
+            T u1 =  (T)"dfg";
+            T u2 =  (T)"fdgdfg";
 
 
-        return condition.test(str) ? ifTrue.apply(u1) : ifFalse.apply(u2);
+        Function<T,  U> res = condition.test(u1) ? (Function<T, U>) ifTrue.apply(u1) : (Function<T, U>)ifFalse.apply(str);
+
+        return res;
 
 
     }
