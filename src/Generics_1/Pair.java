@@ -1,30 +1,27 @@
 package Generics_1;
 
-import java.util.Optional;
+public class Pair<V, K> {
 
-public class Pair<Integer, String> {
+    K str;
+    V i;
 
-    String str;
-    Integer i;
-
-   private Pair(String str, Integer i){
+   private Pair( V i, K str){
         this.str = str;
         this.i = i;
     }
 
+    public static <V, K> Pair<V,K> of( V i,K str) {
 
-    public static <String, Integer> Pair<Integer,String> of(Integer i, String hello) {
-
-
-    return new Pair<Integer, String>(hello,i);
-    }
-
-    public Integer getFirst(){
-
-    return this.i;
+    return new Pair<V, K>(i,str);
 
     }
-    public String getSecond() {
+
+    public V getFirst(){
+
+      return this.i;
+
+    }
+    public K getSecond() {
 
        return this.str;
 
@@ -48,9 +45,6 @@ public class Pair<Integer, String> {
         return result;
 
     }
-
-
-
 }
 
 
