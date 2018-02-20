@@ -55,6 +55,7 @@ public class Worlds {
             }
         }
 
+        Arrays.sort(result,(a,b)->b.compareTo(a));
         System.out.println(Arrays.toString(result));
 
     }

@@ -17,8 +17,8 @@ public class Main {
             Function<? super T, ? extends U> ifTrue,
             Function<? super T, ? extends U> ifFalse) {
 
-            Function<T,  U> res = condition.test(T t) ?  ifTrue.apply(T t) : ifFalse.apply(T t);
+//            Function<T,  U> res = condition.test(T t) ?  ifTrue.apply(T t) : ifFalse.apply(T t);
 
-        return res;
+        return null;
     }
 }
