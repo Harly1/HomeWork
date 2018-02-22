@@ -1,5 +1,6 @@
 package funcInterface;
 
+import java.util.Collections;
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -17,7 +18,8 @@ public class Main {
             Function<? super T, ? extends U> ifTrue,
             Function<? super T, ? extends U> ifFalse) {
 
-//            Function<T,  U> res = condition.test(T t) ?  ifTrue.apply(T t) : ifFalse.apply(T t);
+
+          Function<T,  U> res = a -> condition.test(a)? ifTrue.apply(a) : ifFalse.apply(a);
 
         return null;
     }
