@@ -1,27 +1,24 @@
 package Generics_1;
 
-public class Pair<V, K> {
-
-    K str;
+public class Pair<T, V> {
+    T str;
     V i;
-
-   private Pair( V i, K str){
+   private Pair(T str, V i){
         this.str = str;
         this.i = i;
     }
 
-    public static <V, K> Pair<V,K> of( V i,K str) {
+    public static <T, V> Pair<T,V> of(T i, V hello) {
 
-    return new Pair<V, K>(i,str);
-
+    return new Pair<T, V>(i,hello);
     }
 
     public V getFirst(){
 
-      return this.i;
+    return this.i;
 
     }
-    public K getSecond() {
+    public T getSecond() {
 
        return this.str;
 
@@ -32,7 +29,7 @@ public class Pair<V, K> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        Pair<Integer, String> rowObj = (Pair<Integer, String>) o;
+        Pair<T, V> rowObj = (Pair<T, V>) o;
 
         if (i != null ? !i.equals(rowObj.i) : rowObj.i != null) return false;
         return str != null ? str.equals(rowObj.str) : rowObj.str == null;
@@ -45,6 +42,7 @@ public class Pair<V, K> {
         return result;
 
     }
+
 }
 
 
