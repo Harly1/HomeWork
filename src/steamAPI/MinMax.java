@@ -16,9 +16,15 @@ public class MinMax {
             Stream<? extends T> stream,
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
-            Optional<? super T> maxValue = stream.max(order.compare(T o1, T o2));
 
-            // your implementation here
+            T max = stream.max(order.compare((p1,p2) -> p1.compareTo(p2)));
+            T min = stream.min(order.compare(T o1, T o2)).get();
 
+            if((max == null) && (min == null)){
+                 minMaxConsumer.accept(null, null);
+
+            } else {
+                 minMaxConsumer.accept(min, max);
+            }
     }
 }
