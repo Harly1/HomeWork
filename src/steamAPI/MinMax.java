@@ -10,17 +10,20 @@ import java.util.stream.Stream;
 public class MinMax {
     public static void main(String[] args) {
         Stream<? extends Integer> stream = Stream.of(1, 2, 5, 6, 7, 4, 3);
-
+        Comparator<? super Integer> order = (a,b)->a.compareTo(b);
+        BiConsumer<? super Integer, ? super Integer> minMaxConsumer = (a,b)-> System.out.println(a+" "+b);
+        findMinMax(stream,order,minMaxConsumer);
     }
 
     public static <T> void findMinMax(
             Stream<? extends T> stream,
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
-            BiFunction <? super T, ? super T,Integer> biFunction = (a,b) -> order.compare(a,b);
+            Stream<? extends T> stream1 = stream;
 
-            T max = stream.max(order.compare((a,b) -> a.compareTo(b)));
-            T min = stream.min(order.compare(T o1, T o2)).get();
+            T max = stream.max(order::compare).get();
+
+            T min = stream1.min(order::compare).get();
 
             if((max == null) && (min == null)){
                  minMaxConsumer.accept(null, null);
