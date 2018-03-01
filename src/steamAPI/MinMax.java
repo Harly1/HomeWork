@@ -4,11 +4,12 @@ import java.util.Arrays;
 import java.util.Comparator;
 import java.util.Optional;
 import java.util.function.BiConsumer;
+import java.util.function.BiFunction;
 import java.util.stream.Stream;
 
 public class MinMax {
     public static void main(String[] args) {
-//        Stream<? extends Integer> stream = Arrays.stream(new []{1,4,5,2,7};
+        Stream<? extends Integer> stream = Stream.of(1, 2, 5, 6, 7, 4, 3);
 
     }
 
@@ -16,8 +17,9 @@ public class MinMax {
             Stream<? extends T> stream,
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
+            BiFunction <? super T, ? super T,Integer> biFunction = (a,b) -> order.compare(a,b);
 
-            T max = stream.max(order.compare((p1,p2) -> p1.compareTo(p2)));
+            T max = stream.max(order.compare((a,b) -> a.compareTo(b)));
             T min = stream.min(order.compare(T o1, T o2)).get();
 
             if((max == null) && (min == null)){
