@@ -9,6 +9,7 @@ import java.util.stream.Stream;
 
 public class Worlds {
     public static void main(String[] args) throws IOException {
+
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
 
             String str = reader.readLine();
