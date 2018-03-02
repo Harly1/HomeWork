@@ -1,15 +1,16 @@
 package steamAPI;
 
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Optional;
+import java.util.*;
 import java.util.function.BiConsumer;
 import java.util.function.BiFunction;
+import java.util.function.Supplier;
 import java.util.stream.Stream;
 
 public class MinMax {
+
+
     public static void main(String[] args) {
-        Stream<? extends Integer> stream = Stream.of(1, 2, 5, 6, 7, 4, 3);
+        Stream<? extends Integer> stream = Stream.of();
         Comparator<? super Integer> order = (a,b)->a.compareTo(b);
         BiConsumer<? super Integer, ? super Integer> minMaxConsumer = (a,b)-> System.out.println(a+" "+b);
         findMinMax(stream,order,minMaxConsumer);
@@ -19,17 +20,19 @@ public class MinMax {
             Stream<? extends T> stream,
             Comparator<? super T> order,
             BiConsumer<? super T, ? super T> minMaxConsumer) {
-            Stream<? extends T> stream1 = stream;
+//            Supplier<Stream<? extends T>> streamSupplier1 = () ->  stream;
+        T min;
+        T max;
+        T[] mass = (T[]) stream.sorted(order::compare).toArray();
 
-            T max = stream.max(order::compare).get();
+        if (mass.length == 0) {
+            min = max = null;
+            minMaxConsumer.accept(null, null);
+        } else {
 
-            T min = stream1.min(order::compare).get();
-
-            if((max == null) && (min == null)){
-                 minMaxConsumer.accept(null, null);
-
-            } else {
-                 minMaxConsumer.accept(min, max);
+            min = mass[0];
+            max = mass[mass.length - 1];
+                minMaxConsumer.accept(min, max);
             }
     }
 }
