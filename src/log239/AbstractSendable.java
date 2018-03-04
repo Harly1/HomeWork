@@ -1,5 +1,7 @@
 package log239;
 
+import java.util.Collections;
+
 public abstract class AbstractSendable implements Sendable{
     protected final String from;
     protected final String to;

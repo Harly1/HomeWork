@@ -30,7 +30,6 @@ public class MinMax {
             min = max = null;
             minMaxConsumer.accept(null, null);
         } else {
-
             min = mass[0];
             max = mass[mass.length - 1];
                 minMaxConsumer.accept(min, max);
