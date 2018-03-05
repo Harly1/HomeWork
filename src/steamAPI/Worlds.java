@@ -11,7 +11,6 @@ import java.util.stream.Stream;
 
 public class Worlds {
     public static void main(String[] args) throws IOException {
-
         try(BufferedReader reader = new BufferedReader(new InputStreamReader(System.in))){
 
             String str = reader.readLine();
@@ -22,12 +21,9 @@ public class Worlds {
                 mass[i] = mass[i].toLowerCase();
 
             }
-//             Comparator<Entry<Map.Entry<String, Long>> myComparator = Comparator.comparing(<Map.Entry<String, Long>, Long>>Map.Entry::getValue).thenComparing(Map.Entry::getKey);
-//           Comparator<Map.Entry<String,Long>> myComparator = myComparator.thenComparing()
 
-//             Comparator<Entry<String,Long>> myOrder = Comparator.comparing(Map.Entry<Entry<String,Long>>::getValue).thenComparing(Map.Entry::getKey);
-
-
+           Comparator<Map.Entry<String,Long>> myOrder1 = Comparator.comparingLong(Map.Entry::getValue); // Long
+           Comparator<Map.Entry<String,Long>> myOrder2 = Comparator.comparing(Map.Entry::getKey);       // String
 
             Stream<String> stringStream = Arrays.stream(mass);
 
@@ -35,8 +31,7 @@ public class Worlds {
                     .collect(Collectors.groupingBy(e -> e,Collectors.counting()));
 
             map.entrySet().stream()
-//                    .sorted(Map.Entry.<String,Long>comparingByValue().reversed())
-//                    .sorted(myComparator)
+//                    .sorted(Map.Entry.comparingByValue(myOrder1).thenComparing(myOrder2))
                     .limit(10)
                     .forEach(System.out::println);
 
