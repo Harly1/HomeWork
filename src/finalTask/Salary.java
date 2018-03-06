@@ -1,6 +1,8 @@
 package finalTask;
 
-public class Salary {
+import java.util.function.Consumer;
+
+public class Salary  {
     String company;
     String owner;
     int number;

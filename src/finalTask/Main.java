@@ -76,6 +76,7 @@ public class Main {
 // Обработка списка зарплат почтовым сервисом
         Arrays.asList(salary1, salary2, salary3).forEach(salaryService);
 
+
 // Получение и проверка словаря "почтового ящика",
 //   где по получателю можно получить список зарплат, которые были ему отправлены.
         Map<String, List<Integer>> salaries = salaryService.getMailBox();
