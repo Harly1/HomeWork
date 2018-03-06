@@ -20,7 +20,18 @@ public class Main {
             }
         });
 
-        System.out.println(list);
+        int i = 10;
+        Integer a = new Integer(10);
+        if(a.equals(i))  System.out.println("Yes");
+
+
 
     }
+
+
+    
+
+
+
+
 }
