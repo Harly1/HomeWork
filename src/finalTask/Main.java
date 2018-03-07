@@ -74,7 +74,7 @@ public class Main {
         MailService<Integer> salaryService = new MailService<>();
 
 // Обработка списка зарплат почтовым сервисом
-//        Arrays.asList(salary1, salary2, salary3).forEach(salaryService);
+        Arrays.asList(salary1, salary2, salary3).forEach(salaryService);
 
 
 // Получение и проверка словаря "почтового ящика",
