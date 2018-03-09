@@ -2,7 +2,7 @@ package finalTask;
 
 import java.util.function.Consumer;
 
-public class Salary  {
+public class Salary extends Message_Salary  {
     String company;
     String owner;
     int number;

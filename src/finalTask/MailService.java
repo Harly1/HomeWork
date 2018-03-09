@@ -5,19 +5,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public class MailService<T> extends MailServiceParent implements Consumer<Salary>{
+public class MailService<T> implements Consumer<Message_Salary> {
+
     @Override
-    public void accept(Salary salary) {
+    public void accept(Message_Salary message_salary) {
 
     }
 
     @Override
-    public Consumer<Salary> andThen(Consumer<? super Salary> after) {
+    public Consumer<Message_Salary> andThen(Consumer<? super Message_Salary> after) {
         return null;
     }
 
-    @Override
-    public void accept(MailMessage mailMessage) {
-        super.accept(mailMessage);
+    public Map<String, List<T>> getMailBox(){
+
+        return new HashMap<String, List<T>>();
     }
+
+
 }

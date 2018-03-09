@@ -1,6 +1,6 @@
 package finalTask;
 
-public class MailMessage {
+public class MailMessage extends Message_Salary {
     String field1;
     String field2;
     String field3;
