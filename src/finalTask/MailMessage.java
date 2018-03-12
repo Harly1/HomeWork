@@ -1,28 +1,30 @@
 package finalTask;
 
-public class MailMessage {
-    String field1;
-    String field2;
-    String field3;
+import java.util.function.Consumer;
 
-    public MailMessage(String field1, String field2, String field3){
-        this.field1 = field1;
-        this.field1 = field2;
-        this.field1 = field3;
+public class MailMessage extends Message_Salary {
+    String from;
+    String to;
+    String text;
+
+    public MailMessage(String from, String to, String text){
+        this.from = from;
+        this.to = to;
+        this.text = text;
 
     }
 
     public String getFrom(){
 
-        return "fd";
+        return from;
 
     }  public String getTo(){
 
-        return "fd";
+        return to;
 
     }  public String getContent(){
 
-        return "fd";
+        return text;
 
     }
 
