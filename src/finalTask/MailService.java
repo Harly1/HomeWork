@@ -20,7 +20,7 @@ public class MailService<T> implements Consumer<Message_Salary> {
         return new HashMap<String, List<T>>(){
             @Override
             public List<T> get(Object key) {
-                if (key.equals("H.P. Lovecraft")) {
+                    if (key.equals("H.P. Lovecraft")) {
                     return super.getOrDefault(key, new ArrayList<T>());
 
                 } else {
