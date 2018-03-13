@@ -14,7 +14,7 @@ public class MailService<T> implements Consumer<Message_Salary> {
     public Consumer<Message_Salary> andThen(Consumer<? super Message_Salary> after) {
         return null;
     }
-
+//
     public Map<String, List<T>> getMailBox(){
 
         return new HashMap<String, List<T>>(){
