@@ -78,6 +78,7 @@ public class Main {
 // Получение и проверка словаря "почтового ящика",
 // где по получателю можно получить список зарплат, которые были ему отправлены.
         Map<String, List<Integer>> salaries = salaryService.getMailBox();
+
         assert salaries.get(salary1.getTo()).equals(Arrays.asList(1)): "wrong salaries mailbox content (1)";
         assert salaries.get(salary2.getTo()).equals(Arrays.asList(Integer.MAX_VALUE)): "wrong salaries mailbox content (2)";
         assert salaries.get(randomTo).equals(Arrays.asList(randomSalary)): "wrong salaries mailbox content (3)";

@@ -1,7 +1,5 @@
 package finalTask;
 
-import java.util.function.Consumer;
-
 public class Salary extends Message_Salary   {
     String company;
     String owner;
@@ -14,8 +12,8 @@ public class Salary extends Message_Salary   {
 
     }
 
-    public String getTo(){
-        return owner;
+    public Integer getTo(){
+        return number;
     }
 
 }
