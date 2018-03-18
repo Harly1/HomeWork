@@ -35,6 +35,7 @@ public class Main {
                 "Я так и не понял Интерстеллар."
         );
 
+//      todo  Разобраться с Message_Salary
         List<MailMessage> messages = Arrays.asList(
                 firstMessage, secondMessage, thirdMessage
         );

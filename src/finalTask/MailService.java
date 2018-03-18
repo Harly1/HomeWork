@@ -5,8 +5,12 @@ import java.util.function.Consumer;
 
 public class MailService<T> implements Consumer<Message_Salary> {
 
+    Map<String, List<T>> map;
+
     @Override
     public void accept(Message_Salary message_salary) {
+        MailMessage targetMessage = (MailMessage) message_salary;
+        map.put(targetMessage.getTo(), (List<T>) getMailBox().get(targetMessage.getTo()));
 
     }
 
