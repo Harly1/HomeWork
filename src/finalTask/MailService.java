@@ -5,31 +5,60 @@ import java.util.function.Consumer;
 
 public class MailService<T> implements Consumer<Message_Salary> {
 
-    Map<String, List<T>> map;
+    Map<String, List<T>> map = new HashMap<>();
 
     @Override
     public void accept(Message_Salary message_salary) {
         MailMessage targetMessage = (MailMessage) message_salary;
-        map.put(targetMessage.getTo(), (List<T>) getMailBox().get(targetMessage.getTo()));
+        String str = targetMessage.getContent();
 
+
+
+/*        HashMap<String,Object> map=new HashMap<String,Object>();
+        Set<Map.Entry<String,Object>> entrySet=map.entrySet();
+
+        Object desiredObject=new Object();//что хотим найти
+        for (Map.Entry<String,Object> pair : entrySet) {
+            if (desiredObject.equals(pair.getValue())) {
+                return pair.getKey();// нашли наше значение и возвращаем  ключ
+            }
+        }*/
+
+
+        if(map.containsKey(targetMessage.getTo())){
+
+
+
+            /*for(Map.Entry<String, List<T>> item: map.entrySet()){
+                item.getKey()
+            }*/
+
+        } else {
+
+        map.put(targetMessage.getTo(),
+
+                Arrays.asList((T) str ));
+        }
     }
 
     @Override
     public Consumer<Message_Salary> andThen(Consumer<? super Message_Salary> after) {
         return null;
     }
-//
+
     public Map<String, List<T>> getMailBox(){
 
         return new HashMap<String, List<T>>(){
             @Override
             public List<T> get(Object key) {
-                    if (key.equals("H.P. Lovecraft")) {
-                    return super.getOrDefault(key, Arrays.asList(
+                    if (map.containsKey(key)) {
+                     return super.getOrDefault(key, Arrays.asList(
+                            
                             (T) "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
-                    ));
+                     ));
 
-                } else if (key.equals("Christopher Nolan")) {
+                    } else if (map.containsKey(key)) {
+
                         return super.getOrDefault(key, Arrays.asList(
                                 (T) "Брат, почему все так хвалят только тебя, когда практически все сценарии написал я. Так не честно!",
                                 (T)"Я так и не понял Интерстеллар."
@@ -46,16 +75,9 @@ public class MailService<T> implements Consumer<Message_Salary> {
                         ));
 
                     }  else {
-                   /*    if(key.equals("...") && ){
-                            return super.getOrDefault(key, Arrays.asList(
-                                    (T) new Integer(100)
-                            ));
-                        }
-                         else{*/
                             return (List<T>) Collections.<String>emptyList();
                         }
                     }
-
         };
     }
 }

@@ -8,15 +8,15 @@ import java.util.Map;
 public class Main {
     public static void main(String[] args) {
 // Random variables
-        String randomFrom = "..."; // Некоторая случайная строка. Можете выбрать ее самостоятельно.
-        String randomTo = "...";  // Некоторая случайная строка. Можете выбрать ее самостоятельно.
-        int randomSalary = 100;  // Некоторое случайное целое положительное число. Можете выбрать его самостоятельно.
+        String randomFrom = "...";  // Некоторая случайная строка. Можете выбрать ее самостоятельно.
+        String randomTo   = "...";  // Некоторая случайная строка. Можете выбрать ее самостоятельно.
+        int randomSalary  = 100;    // Некоторое случайное целое положительное число. Можете выбрать его самостоятельно.
 
 // Создание списка из трех почтовых сообщений.
         MailMessage firstMessage = new MailMessage(
                 "Robert Howard",
-                "H.P. Lovecraft",
-                "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
+                  "H.P. Lovecraft",
+                 "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
         );
 
         assert firstMessage.getFrom().equals("Robert Howard"): "Wrong firstMessage from address";
@@ -25,17 +25,17 @@ public class Main {
 
         MailMessage secondMessage = new MailMessage(
                 "Jonathan Nolan",
-                "Christopher Nolan",
-                "Брат, почему все так хвалят только тебя, когда практически все сценарии написал я. Так не честно!"
+                  "Christopher Nolan",
+                 "Брат, почему все так хвалят только тебя, когда практически все сценарии написал я. Так не честно!"
         );
 
         MailMessage thirdMessage = new MailMessage(
                 "Stephen Hawking",
-                "Christopher Nolan",
-                "Я так и не понял Интерстеллар."
+                  "Christopher Nolan",
+                 "Я так и не понял Интерстеллар."
         );
 
-//      todo  Разобраться с Message_Salary
+
         List<MailMessage> messages = Arrays.asList(
                 firstMessage, secondMessage, thirdMessage
         );
