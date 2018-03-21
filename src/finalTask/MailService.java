@@ -5,6 +5,7 @@ import java.util.function.Consumer;
 
 public class MailService<T> implements Consumer<Message_Salary> {
 
+    List<T> list = new ArrayList<T>();
     Map<String, List<T>> map = new HashMap<>();
 
     @Override
@@ -12,32 +13,20 @@ public class MailService<T> implements Consumer<Message_Salary> {
         MailMessage targetMessage = (MailMessage) message_salary;
         String str = targetMessage.getContent();
 
-
-
-/*        HashMap<String,Object> map=new HashMap<String,Object>();
-        Set<Map.Entry<String,Object>> entrySet=map.entrySet();
-
-        Object desiredObject=new Object();//что хотим найти
-        for (Map.Entry<String,Object> pair : entrySet) {
-            if (desiredObject.equals(pair.getValue())) {
-                return pair.getKey();// нашли наше значение и возвращаем  ключ
-            }
-        }*/
-
-
         if(map.containsKey(targetMessage.getTo())){
 
+                Iterator<Map.Entry<String,  List<T>>> entries = map.entrySet().iterator();
+                while (entries.hasNext()) {
+                    Map.Entry<String, List<T>> entry = entries.next();
+                    if(entry.getKey().equals(targetMessage.getTo())){
+                        entry.getValue().add((T) str);
+                    }
 
-
-            /*for(Map.Entry<String, List<T>> item: map.entrySet()){
-                item.getKey()
-            }*/
+                }
 
         } else {
-
-        map.put(targetMessage.getTo(),
-
-                Arrays.asList((T) str ));
+                list =   Arrays.asList((T) str);
+                map.put(targetMessage.getTo(),list);
         }
     }
 
@@ -64,7 +53,7 @@ public class MailService<T> implements Consumer<Message_Salary> {
                                 (T)"Я так и не понял Интерстеллар."
                         ));
 
-                    }else if (key.equals(1)) {
+                    } else if (key.equals(1)) {
                         return super.getOrDefault(key, Arrays.asList(
                                 (T) key
                         ));
