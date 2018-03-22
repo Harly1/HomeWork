@@ -5,49 +5,39 @@ import java.util.function.Consumer;
 
 public class MailService<T> implements Consumer<Mail> {
 
-    List<T> list = new ArrayList<T>();
+
     Map<String, List<T>> map = new HashMap<>();
 
     @Override
     public void accept(Mail mail) {
-        String to =  mail.getTo();
-        Object text = mail.getContent();
+        String to = mail.getTo();
+        Object content = mail.getContent();
 
+        if (map.containsKey(to)) {
+            map.get(to).add((T) content);
+
+        } else {
+            List<T> list = new ArrayList<>();
+            list.add((T) content);
+            map.put(to, list);
+
+        }
     }
 
-
-    public Map<String, List<T>> getMailBox(){
-
-        return new HashMap<String, List<T>>(){
+    public Map<String, List<T>> getMailBox() {
+        Map<String, List<T>> newMap = new HashMap<String, List<T>>(map) {
             @Override
             public List<T> get(Object key) {
-                    if (map.containsKey(key)) {
-                     return super.getOrDefault(key, Arrays.asList(
-                            
-                            (T) "This \"The Shadow over Innsmouth\" story is real masterpiece, Howard!"
-                     ));
+                if (!map.containsKey(key)) {
+                    return super.getOrDefault(key, (List<T>) Collections.<String>emptyList());
+                }
 
-                    } else if (map.containsKey(key)) {
-
-                        return super.getOrDefault(key, Arrays.asList(
-                                (T) "Брат, почему все так хвалят только тебя, когда практически все сценарии написал я. Так не честно!",
-                                (T)"Я так и не понял Интерстеллар."
-                        ));
-
-                    } else if (key.equals(1)) {
-                        return super.getOrDefault(key, Arrays.asList(
-                                (T) key
-                        ));
-
-                    } else if (key.equals(Integer.MAX_VALUE)) {
-                        return super.getOrDefault(key, Arrays.asList(
-                                (T) key
-                        ));
-
-                    }  else {
-                            return (List<T>) Collections.<String>emptyList();
-                        }
-                    }
+                return map.get(key);
+            }
         };
+        return newMap;
+
     }
 }
+
+
