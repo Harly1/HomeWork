@@ -1,31 +1,9 @@
 package finalTask;
 
-import java.util.function.Consumer;
+public class MailMessage extends Mail<String> {
 
-public class MailMessage extends Message_Salary {
-    String from;
-    String to;
-    String text;
 
-    public MailMessage(String from, String to, String text){
-        this.from = from;
-        this.to = to;
-        this.text = text;
-
+    public MailMessage(String from, String to, String content) {
+        super(from,to,content);
     }
-
-    public String getFrom(){
-
-        return from;
-
-    }  public String getTo(){
-
-        return to;
-
-    }  public String getContent(){
-
-        return text;
-
-    }
-
 }

@@ -1,19 +1,10 @@
 package finalTask;
 
-public class Salary extends Message_Salary   {
-    String company;
-    String owner;
-    int    number;
+public class Salary extends Mail<Integer> {
 
-    public Salary(String company, String owner,int number){
-        this.company = company;
-        this.owner = owner;
-        this.number = number;
+
+    public Salary(String from, String to, int content) {
+        super(from,to,content);
 
     }
-
-    public Integer getTo(){
-        return number;
-    }
-
 }

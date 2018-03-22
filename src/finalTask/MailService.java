@@ -3,37 +3,18 @@ package finalTask;
 import java.util.*;
 import java.util.function.Consumer;
 
-public class MailService<T> implements Consumer<Message_Salary> {
+public class MailService<T> implements Consumer<Mail> {
 
     List<T> list = new ArrayList<T>();
     Map<String, List<T>> map = new HashMap<>();
 
     @Override
-    public void accept(Message_Salary message_salary) {
-        MailMessage targetMessage = (MailMessage) message_salary;
-        String str = targetMessage.getContent();
+    public void accept(Mail mail) {
+        String to =  mail.getTo();
+        Object text = mail.getContent();
 
-        if(map.containsKey(targetMessage.getTo())){
-
-                Iterator<Map.Entry<String,  List<T>>> entries = map.entrySet().iterator();
-                while (entries.hasNext()) {
-                    Map.Entry<String, List<T>> entry = entries.next();
-                    if(entry.getKey().equals(targetMessage.getTo())){
-                        entry.getValue().add((T) str);
-                    }
-
-                }
-
-        } else {
-                list =   Arrays.asList((T) str);
-                map.put(targetMessage.getTo(),list);
-        }
     }
 
-    @Override
-    public Consumer<Message_Salary> andThen(Consumer<? super Message_Salary> after) {
-        return null;
-    }
 
     public Map<String, List<T>> getMailBox(){
 
