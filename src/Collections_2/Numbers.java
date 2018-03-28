@@ -7,16 +7,20 @@ import java.util.Scanner;
 public class Numbers {
     public static void main(String[] args) {
         int piece = 0;
+        int blank = 0;
         int position = 0;
         List<Integer> list = new ArrayList<Integer>();
 
         try (Scanner sc = new Scanner(System.in)) {
+
             while(sc.hasNextInt()){
-                piece = sc.nextInt();
-                if(!(position%2 == 0)){
+                blank = sc.nextInt();
+
+                if(sc.nextInt()>0){
+                    piece = sc.nextInt();
                     list.add(piece);
+                    position++;
                 }
-                position++;
             }
 
         } catch (Exception e) {
