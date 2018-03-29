@@ -16,14 +16,18 @@ public class Numbers {
             while(sc.hasNextInt()){
                 blank = sc.nextInt();
 
-                if(sc.nextInt()>0){
+                if(sc.hasNextInt()){
                     piece = sc.nextInt();
                     list.add(piece);
                     position++;
                 }
+                else {
+//                    System.out.println("k");
+                }
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
 
         }
 
