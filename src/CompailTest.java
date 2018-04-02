@@ -4,7 +4,7 @@ public class CompailTest {
         Integer i2 = 10;
         Integer i11 = 1000;
         Integer i22 = 1000;
-
+//                \u000d System.out.println("Comment");
 
         Double d1 = 10d;
         Double d2 = 10d;

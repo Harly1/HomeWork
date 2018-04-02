@@ -30,17 +30,17 @@ public class MyLinkedList<E> {
         }
     }
 
-    public void add(E element){
+/*    public void add(E element){
 
             header= new Entry(element, header.next, header.prev);
-                    Integer.
+
 
     }
 
 
     public E get(int index) {
         return node(index).item;
-    }
+    }*/
 
 
 
