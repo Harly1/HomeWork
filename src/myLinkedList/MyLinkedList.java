@@ -4,20 +4,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class MyLinkedList<E> {
-    int size = 0;
 
-    Entry<E>[] header;
+    int size = 0;
     Entry<E> first;
     Entry<E> last;
 
 
-    public MyLinkedList(){
-        Entry<E> o = new Entry<E>(null,null,null);
-        header[0] = o;
-    }
+    private static class Entry<E>{
 
-    private static class Entry<E>
-    {
         E element;
         Entry<E> next;
         Entry<E> prev;
@@ -30,19 +24,36 @@ public class MyLinkedList<E> {
         }
     }
 
-/*    public void add(E element){
+    public void add(E element){
+        if(size==0){
+            Entry<E> cur = new Entry<E>(element,null,null);
+            first = cur;
+            last = cur;
+            size++;
+        } else {
+            Entry<E> end = last;
+            Entry<E> cur = new Entry<E>(element,null,end);
+            last = cur;
+            size++;
+        }
 
-            header= new Entry(element, header.next, header.prev);
 
 
     }
 
+ /*   public E get(int index) {
 
-    public E get(int index) {
-        return node(index).item;
+
+
+
+        return
     }*/
 
-
-
-
+    @Override
+    public String toString() {
+        return "MyLinkedList{" +
+                "first=" + first +
+                ", last=" + last +
+                '}';
+    }
 }
