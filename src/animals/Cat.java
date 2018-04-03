@@ -2,7 +2,7 @@ package animals;
 
 import java.util.*;
 
-public class Cat implements Animal {
+public class Cat extends SuperAnimal implements Animal {
     @Override
     public void voice() {
 

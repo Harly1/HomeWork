@@ -8,7 +8,7 @@ public class Pair<T, V> {
         this.i = i;
     }
 
-    public static <T, V> Pair<T,V> of(T i, V hello) {
+    public static  <T, V> Pair<T,V> of(T i, V hello) {
 
     return new Pair<T, V>(i,hello);
     }
