@@ -5,9 +5,9 @@ import java.util.List;
 
 public class MyLinkedList<E> {
 
-    int size;
-    Entry<E> first;
-    Entry<E> last;
+    private  int size;
+    private  Entry<E> first;
+    private  Entry<E> last;
 
     private static class Entry<E>{
 
@@ -23,14 +23,18 @@ public class MyLinkedList<E> {
         }
     }
 
-    void add(E e) {
+    public void add(E e) {
            final Entry<E> l = last;
            final Entry<E> newNode = new Entry<>(e, null, l);
            last = newNode;
-           if (l == null)
-                   first = newNode;
-           else
-               l.next = newNode;
+
+            if (l == null){
+                first = newNode;
+            }
+            else{
+                l.next = newNode;
+            }
+
            size++;
 
        }
@@ -43,24 +47,22 @@ public class MyLinkedList<E> {
         return this.last.element;
     }
 
-    public boolean remove(Object o) {
-                if (o == null) {
-                       for (Entry<E> x = first; x != null; x = x.next) {
-                           if (x.element == null) {
-                                   unlink(x);
-                                   return true;
-                           }
-                       }
-                } else {
-                    for (Entry<E> x = first; x != null; x = x.next) {
-                      if (o.equals(x.element)) {
-                            unlink(x);
-                            return true;
-                      }
-                    }
-                }
-            return false;
-        }
+    public void remove(Object o) {
+      if (o == null) {
+             for (Entry<E> x = first; x != null; x = x.next) {
+                 if (x.element == null) {
+                         unlink(x);
+                 }
+             }
+
+      } else {
+          for (Entry<E> x = first; x != null; x = x.next) {
+            if (o.equals(x.element)) {
+                  unlink(x);
+            }
+          }
+      }
+    }
 
   public  E unlink(Entry<E> x) {
 
@@ -85,6 +87,6 @@ public class MyLinkedList<E> {
           x.element = null;
           size--;
           return element;
+  }
 
-    }
 }

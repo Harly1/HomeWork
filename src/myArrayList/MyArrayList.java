@@ -3,8 +3,8 @@ package myArrayList;
 import java.util.Arrays;
 
 public class MyArrayList<T> {
-    int size = 0;
-    Object[] mass = new Object[100];
+    private   int size = 0;
+    private   Object[] mass = new Object[100];
 
     public void add(T element){   //add
         if(mass.length<=size){
